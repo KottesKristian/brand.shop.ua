@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+}
+
+li {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+ul {
+    margin: 0;
+}
+
+a:hover {
+    color: #fff;
+}
+
+.menu-list li a:hover {
+    color: #fff;
+}
+.admin-wrapper {
+    height: 100vh;
+    background: #4ccfc1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.log-in {
+    margin: 0;
+}
+
+.login-help {
+    margin-bottom: 0;
+}
+
+.main-content {
+    background: #fff;
+}
+
+.product_admin_add {
+    width: 150px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    background: #21b821;
+    margin: 20px 5px 15px;
+    border-radius: 5px;
+    display: block;
+}
+
+.product_admin {
+    min-width: 800px;
+    margin: 20px auto; 
+}
+
+.product_title_admin {
+    background: #4ccfc1;
+    color: #fff;
+}
+
+.product_title_admin :first-child {
+    width: 150px;
+}
+
+.product_title_admin td {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.product_title_admin :nth-child(2) {
+    width: 150px;
+}
+
+.product_image_admin {
+    
+}
+
+.ptoduct_image_admin img {
+    width: 130px;
+    margin: 15px;
+}
+
+.product_admin_buttons {
+    width: 150px;
+}
+
+.product_admin_buttons a {
+    width: 150px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    background: #4ccfc1;
+    margin-top: 10px;
+    border-radius: 5px;
+    display: block;
+}
+
+.product_admin_buttons :nth-child(1) {
+    background: #2a85a1;
+}
+
+.product_admin_buttons :nth-child(2) {
+    background: #cf2525;
+}
+
+.product_admin_buttons :nth-child(3) {
+    
+}
+
+.product_name_admin {
+    vertical-align: text-top;
+    padding: 10px;
+}
+
+.product_name_admin h3 {
+    
+}
+.product_admin_describe {
+    vertical-align: text-top;
+    padding: 10px;
+}
+
+.product_admin_quantity {
+    vertical-align: text-top;
+    padding: 10px;
+}
+
+.form_add_product {
+    width: 600px;
+    margin:30px auto;
+}
+
+/* .form_add_product input[type=text] {
+    font-size: 20px;
+    width: 500px;
+    border: 1px solid #2a85a1;
+    border-radius: 3px;
+    margin: 5px;
+    padding: 3px;
+} */
+
+/* .form_add_product input[type=submit] {
+    width: 100px;
+    font-size: 20px;
+    float: right;
+    margin: 5px 90px 10px 0;
+    padding: 5px;
+    background-color: #2a85a1;
+    border-radius: 5px;
+    color: #fff;
+} */
