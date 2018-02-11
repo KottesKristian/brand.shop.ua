@@ -21,7 +21,7 @@ Route::group([], function () {
 
 //    //Route::get('{slug}/{slug2?}','DynamicRouteController@index');
 //    Route::get('/{pages}', function ($pages) {
-//        $result = DB::table('categories')->pluck('category_alias');
+//        $result = DB::table('categ$resories')->pluck('category_alias');
 ////        dd($result);
 //        if ($pages == 'admin'){
 //            return redirect()->route('login');
