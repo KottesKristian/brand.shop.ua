@@ -8,7 +8,7 @@
         <ul class="menu-list">
             <li><a href="{{ url('/admin') }}">Головна</a></li>
             <li><a href="{{ route('productList') }}">Товари</a></li>
-            <li><a href="">Категорії</a></li>
+            <li><a href="{{ route('categoryList') }}">Категорії</a></li>
             {{--<li><a href=""></a></li>--}}
             {{--<li><a href=""></a></li>--}}
         </ul>

@@ -12,6 +12,11 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
+    public function categoryRout()
+    {
+
+    }
+
     /**
      * @return array
      */
@@ -22,6 +27,7 @@ class Controller extends BaseController
 
         return $result;
     }
+
 
     /**
      * @param $res

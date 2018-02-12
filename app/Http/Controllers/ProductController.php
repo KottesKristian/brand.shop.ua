@@ -53,4 +53,31 @@ class ProductController extends Controller
     {
         //
     }
+
+    public function edit($id)
+    {
+        $categories = $this->getCategories();
+        //dd($categories);
+        if (view()->exists('default.admin.product.edit')) {
+            return view('default.admin.product.edit',[
+                'categories' => $categories
+            ]);
+        }
+    }
+
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
 }

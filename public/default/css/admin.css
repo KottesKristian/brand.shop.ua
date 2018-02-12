@@ -52,6 +52,7 @@ a:hover {
     display: block;
 }
 
+
 .product_admin {
     min-width: 800px;
     margin: 20px auto; 
@@ -99,11 +100,11 @@ a:hover {
     display: block;
 }
 
-.product_admin_buttons :nth-child(1) {
+.product_admin_buttons .editCategory {
     background: #2a85a1;
 }
 
-.product_admin_buttons :nth-child(2) {
+.product_admin_buttons .deleteCategory {
     background: #cf2525;
 }
 
@@ -116,8 +117,11 @@ a:hover {
     padding: 10px;
 }
 
-.product_name_admin h3 {
-    
+.product_name_admin a {
+    color: #000;
+}
+.product_name_admin a:hover{
+    color: #2a85a1;
 }
 .product_admin_describe {
     vertical-align: text-top;
@@ -132,6 +136,21 @@ a:hover {
 .form_add_product {
     width: 600px;
     margin:30px auto;
+}
+
+.admin-menu a {
+    color: #000;
+    font-size: 20px;
+}
+
+
+
+.sub:before {
+    content: "-";
+    font-size: 20px;
+}
+.sub {
+    padding-left: 20px;
 }
 
 /* .form_add_product input[type=text] {

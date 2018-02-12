@@ -2,6 +2,9 @@
 
 
 Route::group([], function () {
+
+    $result = DB::table('categories')->pluck('category_alias','category_rout')->toArray();
+    //dd($result);
     Route::resource('/', 'IndexController', [
 
         'only' => ['index'],
@@ -9,11 +12,12 @@ Route::group([], function () {
             'index' => 'home'
         ]
     ]);
-    $result = DB::table('categories')->pluck('category_alias')->toArray();
+
     //dd($result);
 
     if (!empty($result)) {
         foreach ($result as $res) {
+//            Route::get('/', ['uses' => 'IndexController@index','as'=>]);
             Route::get('/'.$res,['uses' => 'ProductController@index']);
             //echo $res.'---';
         }
@@ -49,7 +53,16 @@ Route::group(['prefix'=>'admin'], function () {
             Route::get('/',['uses'=>'Admin\ProductController@index','as'=>'productList']);
             Route::get('/add',['uses'=>'Admin\ProductController@create','as'=>'productAdd']);
             Route::post('/add',['uses'=>'Admin\ProductController@index']);
-            Route::match(['get','post','delete'],'/edit/{page}',['uses'=>'PagesEditController@execute','as'=>'pagesEdit']);
+            Route::match(['get','post','delete'],'/edit/{id}',['uses'=>'Admin\ProductController@edit','as'=>'productEdit']);
+
+        });
+
+        Route::group(['prefix'=>'category'], function () {
+
+            Route::get('/',['uses'=>'Admin\CategoryController@index','as'=>'categoryList']);
+            Route::get('/add',['uses'=>'Admin\CategoryController@create','as'=>'categoryAdd']);
+            Route::post('/add',['uses'=>'Admin\CategoryController@store']);
+            Route::match(['get','post','delete'],'/edit/{id}',['uses'=>'Admin\CategoryController@edit','as'=>'categoryEdit']);
 
         });
 //

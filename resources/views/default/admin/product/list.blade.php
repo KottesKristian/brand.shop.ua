@@ -31,8 +31,8 @@
                     </p>
                 </td>
                 <td class="product_admin_buttons">
-                    <a href="">Редагувати товар</a>
-                    <a href="">Видалити товар</a>
+                    <a class="editCategory" href="">Редагувати товар</a>
+                    <a class="deleteCategory" href="">Видалити товар</a>
                 </td>
             </tr>
         </table>

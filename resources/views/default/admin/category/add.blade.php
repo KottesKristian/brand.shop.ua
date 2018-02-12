@@ -6,29 +6,25 @@
 
 @section('content')
     <div class="content">
-        <form class="form-horizontal form_add_product">
+        <form class="form-horizontal form_add_product" method="post" action="{{ url('admin/category/add') }}">
+            {{ csrf_field() }}
             <div class="form-group">
-                <label for="inputEmail3" class="col-sm-4 control-label">Назва товару</label>
+                <label for="name" class="col-sm-4 control-label">Назва категорії</label>
                 <div class="col-sm-8">
-                    <input type="email" class="form-control" id="inputEmail3" placeholder="Введіть назву">
+                    <input name="name" type="text" class="form-control" id="name" placeholder="Введіть назву">
                 </div>
             </div>
             <div class="form-group">
-                <label for="inputPassword3" class="col-sm-4 control-label">Кількість</label>
+                <label for="alias" class="col-sm-4 control-label">Введіть аліас</label>
                 <div class="col-sm-8">
-                    <input type="password" class="form-control" id="inputPassword3" placeholder="Введіть кількість">
+                    <input name="alias" type="text" class="form-control " id="alias" placeholder="Введіть аліас" disabled>
                 </div>
             </div>
             <div class="form-group">
-                <label for="inputPassword3" class="col-sm-4 control-label">Опис товару</label>
+                <label for="category" class="col-sm-4 control-label">Виберіть категорію</label>
                 <div class="col-sm-8">
-                    <textarea class="form-control" id="inputPassword3" rows="3" placeholder="Опис"></textarea>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="sel1" class="col-sm-4 control-label">Виберіть категорію</label>
-                <div class="col-sm-8">
-                    <select class="form-control" id="sel1">
+                    <select class="form-control" id="category">
+                        <option name="parent_category"></option>
                         @if(isset($categories) && count($categories)>0)
                             @foreach ($categories as $category)
                                 @include('default.partials.admin.categories', $category)
@@ -38,14 +34,10 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="inputPassword3" class="col-sm-4 control-label">Фото</label>
+                <label for="checkAlias" class="col-sm-4 control-label">Аліас</label>
                 <div class="col-sm-8">
-                    <label for="exampleInputFile">File input</label>
-                    <input type="file" id="exampleInputFile">
+                    <input type="checkbox"  id="checkAlias" placeholder="Введіть кількість">
                 </div>
-            </div>
-            <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10"></div>
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-9">
@@ -63,6 +55,5 @@
         </form> -->
     </div>
 @endsection
-
 
 

@@ -13,7 +13,6 @@
 <div class="header-menu">
     <div class="nav content">
         <ul class="menu-list">
-            <li><a href="{{ route('home') }}">Головна</a></li>
             @if (isset($categories) && count($categories) > 0)
                 @foreach ($categories as $category)
                     @include('default.partials.categories', $category)
