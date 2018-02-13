@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Category;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
 
 class CategoryController extends Controller
 {
@@ -18,6 +20,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
+        $this->createCategoryRout();
         $categories = $this->getCategories();
         //dd($categories);
         if (view()->exists('default.admin.category.list')) {
@@ -45,12 +48,19 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+        $parentCategory = $request->input('category');
+
+        if (!empty($parentCategory)) {
+            $parentId = $parentCategory;
+        }else {
+            $parentId = '0';
+        }
         $data = [
             'category_name' => $request->input('name'),
             'category_alias' => $request->input('alias'),
-            'parent_id' => $request->input('name'),
+            'parent_id' => $parentId,
         ];
-        Category::create('');
+        Category::create($data);
     }
 
     public function edit($id)

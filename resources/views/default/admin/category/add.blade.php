@@ -23,11 +23,11 @@
             <div class="form-group">
                 <label for="category" class="col-sm-4 control-label">Виберіть категорію</label>
                 <div class="col-sm-8">
-                    <select class="form-control" id="category">
-                        <option name="parent_category"></option>
+                    <select name="category" class="form-control" id="category">
+                        <option name="parentCategory"></option>
                         @if(isset($categories) && count($categories)>0)
-                            @foreach ($categories as $category)
-                                @include('default.partials.admin.categories', $category)
+                            @foreach ($categories as $k=>$category)
+                                @include('default.partials.admin.categories', ['k'=>$k, 'category'=>$category])
                             @endforeach
                         @endif
                     </select>

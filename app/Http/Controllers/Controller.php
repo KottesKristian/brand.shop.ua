@@ -12,9 +12,14 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function categoryRout()
+    public function createCategoryRout()
     {
-
+//        $result = Category::pluck('category_alias','category_id')->toArray();
+        $result = Category::with('children')->get()->toArray();
+        //dd($result);
+        $result = $this->buildTree($result);
+        $result = $this->categoryRout($result,'shoes');
+        dd($result);
     }
 
     /**
@@ -46,6 +51,7 @@ class Controller extends BaseController
             $cur['parent_id'] = $value['parent_id'];
             $cur['category_name'] = $value['category_name'];
             $cur['alias'] = $value['category_alias'];
+            $cur['rout'] = $value['category_rout'];
 
             if ($value['parent_id'] == 0) {
                 $tree[$value['category_id']] = &$cur;
@@ -57,4 +63,58 @@ class Controller extends BaseController
         return $tree;
 
     }
+
+    protected function categoryRout($res, $val)
+    {
+        $levels = array();
+        $tree = array();
+        $cur = array();
+        $rout = '';
+        $alias = $val;
+        $bool = true;
+
+        foreach ($res as $value) {
+
+            if ($value['alias'] != $alias) {
+
+            } else {
+                $rout = 'rout';
+            }
+            if ($value['alias'] != $alias) {
+                if (isset($value['children']) && count($value['children']) > 0) {
+                    $this->categoryRout($value['children'],$alias);
+                }
+            } else {
+                if ($value['parent_id'] != 0) {
+                    $rout = '/' . $value['alias'];
+//                    dd($rout);
+                    break;
+
+                } else {
+                    $rout = '/' . $value['alias'];
+
+                }
+                break;
+            }
+//            if ($value['alias'] != $alias) {
+//                break;
+//            }
+//            else {
+//                $rout = 'rout';
+//            }
+//            $cur = &$levels[$value['category_id']];
+//            $cur['parent_id'] = $value['parent_id'];
+//            $cur['category_name'] = $value['category_name'];
+//            $cur['alias'] = $value['category_alias'];
+//            $cur['rout'] = $value['category_rout'];
+//
+//            if ($value['parent_id'] == 0) {
+//                $tree[$value['category_id']] = &$cur;
+//            } else {
+//                $levels[$value['parent_id']]['children'][$value['category_id']] = &$cur;
+//            }
+        }
+        return $rout;
+    }
+
 }
